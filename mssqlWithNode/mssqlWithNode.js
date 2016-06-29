@@ -5,19 +5,19 @@ app.get('/', function(request, response){
     var sql = require('mssql');
 
     var config = {
-        user: '{ryan}',
-        password: '{Isol@9018!}',
-        server: '{auazu8eqdu.database.windows.net}', // simply remove "tcp:"
+        user: '{username}',
+        password: '{password}',
+        server: '{servername}', // simply remove "tcp:"
         options: {
             encrypt: true, // Use this if you're on Windows Azure 
-        database: '{ODS}'
+        database: '{databasename}'
         }
     }
     
     sql.connect(config).then(function() {
         // Query 
         
-        new sql.Request().query('select * from Address').then(function(recordset) {
+        new sql.Request().query('select * from [tableName]').then(function(recordset) {
             console.dir(recordset);
             
             response.send(recordset);
