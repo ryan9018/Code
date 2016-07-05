@@ -13,7 +13,7 @@ namespace TestWebAPI.Web
         {
             // Web API configuration and services            
             config.MessageHandlers.Add(new RequireHttpsHandler());
-            config.MessageHandlers.Add(new ApiKeyHandler("abc123"));
+            config.MessageHandlers.Add(new ApiKeyHandler("abc123"));  // This string value would be pulled from config.
 
             // Web API routes
             config.MapHttpAttributeRoutes();
